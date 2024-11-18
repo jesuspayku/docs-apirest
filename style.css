@@ -1,0 +1,87 @@
+ul {
+  list-style: none;
+}
+
+.hDtdNU {
+  width: 70% !important;
+  margin: 1rem auto !important;
+}
+
+.brEFsR,
+.eIeJha {
+  background: #21273d !important;
+}
+
+.jwVCIw {
+  background: #21273d !important;
+}
+
+.gakjPe {
+  background: #1b2032 !important;
+}
+
+.hHuJoM > .react-tabs__tab-panel,
+.bmoWQk pre {
+  background: #1b2032 !important;
+}
+
+.errorTitle {
+  font-size: 15px;
+}
+
+.errorDescription {
+  font-size: 17px;
+}
+
+.psmall {
+  color: #939da3;
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.errorContent table td:first-child {
+  min-width: 9rem;
+  background-color: white;
+}
+
+.errorContent table td:last-child {
+  width: 100%;
+  background-color: white;
+}
+
+.content {
+  text-align: center;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.smallTable {
+  width: 60% !important;
+}
+
+.content table td:first-child {
+  max-width: 3rem;
+  background-color: white;
+  text-align: center;
+}
+
+.content table td:last-child {
+  width: 60%;
+  background-color: white;
+  text-align: center;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.gza-dof {
+  background: #21273d !important;
+}
+
+button[aria-label="expand properties"] {
+  font-weight: bold;
+}
