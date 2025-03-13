@@ -84,7 +84,7 @@ info:
     $data = [
       'email' => 'johndoe@example.com',
       'name' => 'John Doe',
-      'phone' => '923122312',
+      'phone' => '04144547087',
       'address' => 'Moneda 101',
       'country' => 'Chile',
       'region' => 'Metropolitana',
