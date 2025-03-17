@@ -424,7 +424,15 @@ x-tagGroups:
   - name: ''
     tags:
       - Transacción
+      - Transacción Escrow
+      - Anulación
+      - Marketplace
+      - Mall
+      - Evento
+      - Suscripción
+      - Suscripción de consumo
       - Wallet
+      - Conciliación
   - name: Herramientas
     tags:
       - Bancos
@@ -1715,19 +1723,18 @@ paths:
 
             request();
 
-
-  /api/nullification:
+  /api/escrow:
     post:
       tags:
-        - Anulación
-      summary: Crear anulación.
-      description: Este método permite crear una anulación de una transacción.
+        - Transacción Escrow
+      summary: Autorizar liquidación
+      description: Este método permite autorizar la liquidación de una o más transacciones utilizando el identificador de las mismás, para que estas puedan ser depositadas en el wallet o la cuenta bancaria del cliente.
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/nullificationResponse"
+                $ref: "#/components/schemas/EscrowResponse"
         "400":
           description: Error en la solicitud.
           content:
@@ -1744,28 +1751,22 @@ paths:
         - lang: "cURL"
           source: |
             curl -X POST \
-            https://BASE-URL/api/nullification \
+            https://BASE-URL/api/escrow \
             -H 'Accept: application/json, text/plain, */*' \
             -H 'Authorization: Bearer TOKEN-PUBLICO' \
-            -H 'Sign: f96ddc14a73a4dd6e009db2514108a3f44832795cd5ac50e6a80fd0b0ae92112' \
             -H 'Content-Type: application/json,application/json' \
             -H 'Host: BASE-URL' \
             -d '{
-              'id': 'trxpr2a45s1dytg1',
-              'amount': 25000,
-              'subject': 'anulación transacción'
+              "transactions": ['trx3b4d77b43acd9a720','trx3b4d77b43acd9a385']
             }'
         - lang: "PHP"
           source: |
             $client = new \GuzzleHttp\Client();
-              $body = $client->request('POST', 'https://BASE_URL/api/nullification', [
+              $body = $client->request('POST', 'https://BASE_URL/api/escrow', [
                 'json' => [
-                  'id' => 'trxpr2a45s1dytg1',
-                  'amount' => 25000,
-                  'subject' => "anulación transacción"
+                  'transactions' => ['trx3b4d77b43acd9a720','trx3b4d77b43acd9a385'],
                   ],
                 'headers' => [
-                  'Sign' => 'f96ddc14a73a4dd6e009db2514108a3f44832795cd5ac50e6a80fd0b0ae92112',
                   'Authorization' => 'Bearer TOKEN_PUBLICO'
                 ]
               ])->getBody();
@@ -1773,11 +1774,10 @@ paths:
         - lang: "JS"
           source: |
             const request = async (data) => {
-              const response = await fetch('https://BASE_URL/api/nullification', {
+              const response = await fetch('https://BASE_URL/api/escrow', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
-                  'Sign': 'f96ddc14a73a4dd6e009db2514108a3f44832795cd5ac50e6a80fd0b0ae92112',
                   'Authorization': 'Bearer TOKEN-PUBLICO'
                 },
                 body: JSON.stringify(data)
@@ -1787,9 +1787,7 @@ paths:
             }
 
             let data = {
-              'id': 'trxpr2a45s1dytg1',
-              'amount': 25000,
-              'subject': 'anulación transacción'
+              transactions: ['trx3b4d77b43acd9a720','trx3b4d77b43acd9a385'],
             };
 
             request(data);
@@ -1799,69 +1797,823 @@ paths:
             schema:
               type: object
               properties:
-                id:
-                  pattern: " máximo 40 caracteres"
-                  description: Identificador de la transacción la cual se desea anular.
-                  type: string
-                  example: "trxpr2a45s1dytg1"
-                amount:
-                  pattern: " máximo 14 dígitos"
-                  description: Monto de la transacción.
-                  type: int
-                  example: 25000
-                subject:
-                  pattern: " máximo 200 caracteres"
-                  description: descripción de la solicitud de anulación.
-                  type: string
-                  example: "anulación transacción"
+                transactions:
+                  pattern: " máximo 30 caracteres"
+                  description: Arreglo que contiene el identificador de cada una de las transacciones que se desean autorizar para liquidación.
+                  type: array
+                  example: ["trx3b4d77b43acd9a720", "trx3b4d77b43acd9a385"]
 
-  /api/nullification/{identificador}:
-    get:
+  /api/suclient/:
+    post:
       tags:
-        - Anulación
-      summary: Obtener anulación.
-      description: |
-        Este método permite obtener las solicitudes de una anulación realizada a payku mediante un identificador:
-
-        Para realizar la consulta es necesario agregar al final del endpoint lo siguiente /{identificador} como por ejemplo: **api/nullification/trxpr2a45s1dytg1**.
+        - Suscripción de consumo
+      summary: Crear cliente
+      description: Este método permite la creación de un cliente.
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/nullificationResponseGet"
+                $ref: "#/components/schemas/AdminClientResponse"
         "400":
           description: Error en la solicitud.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error400get"
+                $ref: "#/components/schemas/Error400"
         "401":
           description: Token Público incorrecto.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error401"
-        "404":
-          description: Identificador no existe.
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/suclient \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "email": "johndoe@example.com",
+                "name": "John Doe",
+                "rut": "111111111",
+                "phone": "923122312",
+                "address": "Moneda 101",
+                "country": "Chile",
+                "region": "Metropolitana",
+                "city": "Santiago",
+                "postal_code": "850000,
+                "additional_parameters":{
+                  "parameter_1": "example",
+                  "parameter_2": "example 2",
+                }
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/suclient', [
+                'json' => [
+                  'email' => 'johndoe@example.com',
+                  'name' => 'John Doe',
+                  'rut' => '111111111',
+                  'phone' => '923122312',
+                  'address' => 'Moneda 101',
+                  'country' => 'Chile',
+                  'region' => 'Metropolitana',
+                  'city' => 'Santiago',
+                  'postal_code' => '850000',
+                    'additional_parameters' => [
+                      'parameter_1' => 'example',
+                      'parameter_2' => 'example 2'
+                    ]
+                  ],
+                'headers' => [
+                  'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization' => 'Bearer TOKEN_PUBLICO'
+                ]
+              ])->getBody();
+            $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/suclient', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              email: "johndoe@example.com",
+              name: "John Doe",
+              rut: "111111111",
+              phone: "923122312",
+              address: "Moneda 101",
+              country: "Chile",
+              region: "Metropolitana",
+              city: "Santiago",
+              postal_code: "850000",
+              additional_parameters:{
+                parameter_1: "example",
+                parameter_2: "example 2",
+              }
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  pattern: " máximo 50 caracteres"
+                  description: Email del cliente.
+                  type: string
+                  format: email
+                  example: "johndoe@example.com"
+                name:
+                  pattern: " máximo 80 caracteres"
+                  description: Nombre del cliente.
+                  type: string
+                  example: "John Doe"
+                rut:
+                  pattern: " 12 caracteres requeridos"
+                  description: Registro Único Tributario del cliente, será permitido el ingreso de este dato con ó sin guión.
+                  type: integer
+                  example: "11111111"
+                phone:
+                  pattern: " 20 caracteres requeridos"
+                  description: Teléfono del cliente.
+                  type: string
+                  example: "923122312"
+                address:
+                  pattern: " máximo 200 caracteres"
+                  description: Dirección del cliente.
+                  type: string
+                  example: "Moneda 101"
+                country:
+                  pattern: " máximo 40 caracteres"
+                  description: País del cliente.
+                  type: string
+                  example: "Chile"
+                region:
+                  pattern: " máximo 120 caracteres"
+                  description: Región del cliente.
+                  type: string
+                  example: "Metropolitana"
+                city:
+                  pattern: " máximo 40 caracteres"
+                  description: Ciudad del cliente.
+                  type: string
+                  example: "Santiago"
+                postal_code:
+                  pattern: " máximo 10 caracteres"
+                  description: Código postal del cliente.
+                  type: string
+                  example: "850000"
+                additional_parameters:
+                  pattern: " máximo 4000 caracteres"
+                  description: Parámetros adicionales del cliente (Opcional).
+                  type: object
+                  properties:
+                    parameter_1:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+                    parameter_2:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+              required:
+                - email
+                - name
+                - phone
+
+  /api/suplan/:
+    post:
+      tags:
+        - Suscripción de consumo
+      summary: Crear plan
+      description: Este método permite la Inserción de los datos para la creación de un plan.
+      responses:
+        "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Error404"
+                $ref: "#/components/schemas/PlanResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/suplan \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "name": "Test plan",
+                "description": "Test Plan"
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/suplan', [
+                'json' => [
+                  'name' => 'Test plan',
+                  'description' => 'Test Plan'
+                  ],
+                  'headers' => [
+                    'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                    'Authorization' => 'Bearer TOKEN_PUBLICO'              ]
+                  ])->getBody();
+                $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/suplan', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              name: "Test plan",
+              description: "Test Plan"
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  pattern: " máximo 200 caracteres"
+                  description: Nombre del plan.
+                  type: string
+                  example: Test plan
+                description:
+                  pattern: " máximo 1000 caracteres"
+                  description: Descripción del plan.
+                  type: string
+                  example: Test Plan
+                url_notify_suscription:
+                  pattern: " máximo 240 caracteres"
+                  description: URL donde se notificare el estado de la suscripcion.
+                  type: string
+                  example: "https://youwebsite.com/urlnotifysuscription"
+                  format: url
+                url_notify_payment:
+                  pattern: " máximo 240 caracteres"
+                  description: URL donde se notificare el estado del pago.
+                  type: string
+                  example: "https://youwebsite.com/urlnotifypayment"
+                  format: url
+                url_success_payment:
+                  pattern: " máximo 240 caracteres"
+                  description: URL donde se redigira al usuario si el pago es exitoso.
+                  type: string
+                  example: "https://youwebsite.com/urlsuccesspayment"
+                  format: url
+                url_failed_payment:
+                  pattern: " máximo 240 caracteres"
+                  description: URL donde se redigira al usuario si el pago es fallido.
+                  type: string
+                  example: "https://youwebsite.com/urlfailedpayment"
+                  format: url
+              required:
+                - name
+  /api/sususcription/:
+    post:
+      tags:
+        - Suscripción de consumo
+      summary: Crear suscripción
+      description: Este método permite al usuario de una cuenta payku crear una suscripción a un plan de suscripción de monto fijo, suscripción de plan de consumo y suscripción de monto variable a uno de sus clientes, para este ultimo tipo de suscripción es necesario enviar el monto que sera cobrado en la suscripción, es importante destacar que al realizar esta solicitud por primera vez se realizará un cobro de $50 que permite comprobar que la tarjeta se encuentra activa y es válida, en el caso de un plan de suscripción fijo el cobro del servicio será automático a partir del mes siguiente de la fecha de suscripción y en el caso que la suscripción sea a un plan de consumo será necesario utilizar el endpoint api/sutransaction para generar la transacción.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateSuscriptionResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/sususcription \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "plan": "pl9697fb170834ad42dd00",
+                "client": "cl9b1e1dd988694f30fa30"
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/sususcription, [
+                'json' => [
+                  'plan' => 'pl9697fb170834ad42dd00',
+                  'client' => 'cl9b1e1dd988694f30fa30',
+                  ],
+                  'headers' => [
+                    'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                    'Authorization' => 'Bearer TOKEN_PUBLICO'
+                  ]
+                ])->getBody();
+              $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/sususcription', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              plan: "pl9697fb170834ad42dd00",
+              client: "cl9b1e1dd988694f30fa30"
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plan:
+                  pattern: " máximo 70 caracteres"
+                  description: Id del plan.
+                  type: string
+                  example: pl9697fb170834ad42dd00
+                client:
+                  pattern: " máximo 20 caracteres"
+                  description: Id del cliente.
+                  type: string
+                  example: cl9b1e1dd988694f30fa30
+              required:
+                - plan
+                - client
+
+  /api/sutransaction/:
+    post:
+      tags:
+        - Suscripción de consumo
+      summary: Crear transacción
+      description: Este método permite al usuario de una cuenta payku crear una transacción única a uno de sus clientes que encuentre suscrito a un plan de consumo.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateSuTransactionResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/sutransaction \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "suscription": "sucaab7865dceaff49d8b3",
+                "amount": "10000",
+                "order": "001",
+                "description": "Descripción"
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/sutransaction, [
+                'json' => [
+                  'suscription' => sucaab7865dceaff49d8b3,
+                  'order' => '001',
+                  'monto' => '10000',
+                  'description' => 'descripcion'
+                  ],
+                  'headers' => [
+                    'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                    'Authorization' => 'Bearer TOKEN_PUBLICO'
+                  ]
+                ])->getBody();
+              $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/sutransaction', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              suscription: "sucaab7865dceaff49d8b3",
+              amount: "10000",
+              order: "001",
+              description: "Descripción"
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                suscription:
+                  pattern: " máximo 60 caracteres"
+                  description: Identificador único de suscripción por payku.
+                  type: string
+                  example: sucaab7865dceaff49d8b3
+                amount:
+                  pattern: " máximo 14 dígitos"
+                  description: Monto.
+                  type: string
+                  example: "10000"
+                order:
+                  pattern: " máximo 40 caracteres"
+                  description: Orden.
+                  type: string
+                  example: "001"
+                description:
+                  pattern: " máximo 1000 caracteres"
+                  description: Descripción.
+                  type: string
+                  example: Descripción
+                card:
+                  pattern: " máximo 28 caracteres"
+                  description: Con el identificador puede indicar a cual de las tarjetas activas se realizará el cobro (OPCIONAL).
+                  type: string
+                  example: "surea041d8a4413949425fec"
+              required:
+                - suscription
+
+  /api/suscriptionsdeletecards/:
+    post:
+      tags:
+        - Suscripción de consumo
+      summary: Eliminar tarjeta
+      description: |
+        Este método permite eliminar una tarjeta asociada a la suscripción.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CardDeleteSuscriptionResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400CardDelete"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/suinscriptionscards \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "card": "surec804a8ed60c0a8cb8839"
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/suinscriptionscards', [
+                'json' => [
+                  'card' => surec804a8ed60c0a8cb8839,
+                  ],
+                  'headers' => [
+                    'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                    'Authorization' => 'Bearer TOKEN_PUBLICO'              ]
+                  ])->getBody();
+                $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/suinscriptionscards', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              card: "surec804a8ed60c0a8cb8839"
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                suscription:
+                  pattern: " máximo 60 caracteres"
+                  description: ID de la tarjeta asociada.
+                  type: string
+                  example: surec804a8ed60c0a8cb8839
+              required:
+                - suscription
+
+  /api/suclient:
+    post:
+      tags:
+        - Suscripción
+      summary: Crear cliente
+      description: Este método permite la inserción de datos de un cliente.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminClientResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X POST \
+            https://BASE_URL/api/suclient \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "email": "johndoe@example.com",
+                "name": "John Doe",
+                "rut": "111111111",
+                "phone": "923122312",
+                "address": "Moneda 101",
+                "country": "Chile",
+                "region": "Metropolitana",
+                "city": "Santiago",
+                "postal_code": "850000,
+                "additional_parameters":{
+                  "parameter_1": "example",
+                  "parameter_2": "example 2",
+                }
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('POST', 'https://BASE_URL/api/suclient', [
+                'json' => [
+                  'email' => 'johndoe@example.com',
+                  'name' => 'John Doe',
+                  'rut' => '111111111',
+                  'phone' => '923122312',
+                  'address' => 'Moneda 101',
+                  'country' => 'Chile',
+                  'region' => 'Metropolitana',
+                  'city' => 'Santiago',
+                  'postal_code' => '850000',
+                  'additional_parameters' => [
+                      'parameter_1' => 'example',
+                      'parameter_2' => 'example 2'
+                    ]
+                  ],
+                'headers' => [
+                  'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization' => 'Bearer TOKEN_PUBLICO'
+                ]
+              ])->getBody();
+            $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/suclient', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            let data = {
+              email: "johndoe@example.com",
+              name: "John Doe",
+              rut: "111111111",
+              phone: "923122312",
+              address: "Moneda 101",
+              country: "Chile",
+              region: "Metropolitana",
+              city: "Santiago",
+              postal_code: "850000",
+              additional_parameters:{
+                parameter_1: "example",
+                parameter_2: "example 2",
+              }
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  pattern: " máximo 50 caracteres"
+                  description: Email del cliente.
+                  type: string
+                  format: email
+                  example: "johndoe@example.com"
+                name:
+                  pattern: " máximo 80 caracteres"
+                  description: Nombre del cliente
+                  type: string
+                  example: "John Doe"
+                rut:
+                  pattern: " 12 caracteres requeridos"
+                  description: Registro Único Tributario del cliente, será permitido el ingreso de este dato con ó sin guión.
+                  type: string
+                  example: "11111111"
+                phone:
+                  pattern: " 20 caracteres requeridos"
+                  description: Teléfono del cliente.
+                  type: string
+                  example: "923122312"
+                address:
+                  pattern: " máximo 200 caracteres"
+                  description: Dirección del cliente.
+                  type: string
+                  example: "Moneda 101"
+                country:
+                  pattern: " máximo 40 caracteres"
+                  description: País del cliente.
+                  type: string
+                  example: "Chile"
+                region:
+                  pattern: " máximo 120 caracteres"
+                  description: Región del cliente.
+                  type: string
+                  example: "Metropolitana"
+                city:
+                  pattern: " máximo 40 caracteres"
+                  description: Ciudad del cliente.
+                  type: string
+                  example: "Santiago"
+                postal_code:
+                  pattern: " máximo 10 caracteres"
+                  description: Código postal del cliente.
+                  type: string
+                  example: "850000"
+                additional_parameters:
+                  pattern: " máximo 4000 caracteres"
+                  description: Parámetros adicionales del cliente (Opcional).
+                  type: object
+                  properties:
+                    parameter_1:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+                    parameter_2:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+              required:
+                - email
+                - name
+                - phone
+
+  /api/suclient/{identificadorCliente} o {emailCliente}:
+    get:
+      tags:
+        - Suscripción
+      summary: Obtener cliente
+      description: Este método permite obtener el detalle de un cliente.
+      operationId: getClientById
+      parameters:
+        - name: id
+          in: path
+          description: Identificador único de transacción por payku o email del cliente.
+          required: true
+          schema:
+            type: string
+            pattern: " máximo 20 caracteres"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientIdResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400Event"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
       x-codeSamples:
         - lang: "CURL"
           source: |
             curl -X GET \
-            https://BASE-URL/api/nullification/{identificador}  \
+            https://BASE_URL/api/suclient/id \
             -H 'Accept: application/json, text/plain, */*' \
-            -H 'Authorization: Bearer TOKEN-PUBLICO' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
             -H 'Content-Type: application/json,application/json' \
-            -H 'Host: BASE-URL' \
+            -H 'Host: BASE_URL' \
         - lang: "PHP"
           source: |
             $client = new \GuzzleHttp\Client();
-              $body = $client->request('GET', 'https://BASE_URL/api/nullification/{identificador}', [
+              $body = $client->request('GET', 'https://BASE_URL/api/suclient/cla90927fa9b30e1dfffa0', [
                 'headers' => [
+                  'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
                   'Authorization' => 'Bearer TOKEN_PUBLICO'
                 ]
               ])->getBody();
@@ -1869,44 +2621,261 @@ paths:
         - lang: "JS"
           source: |
             const request = async () => {
-              const response = await fetch('https://BASE_URL/api/nullification/{identificador}', {
+              const response = await fetch('https://BASE_URL/api/suclient/cla90927fa9b30e1dfffa0', {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': 'Bearer TOKEN-PUBLICO'
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
                 },
               });
               const result = await response.json();
               console.log(result)
             }
 
-            request();
+            request(data);
 
-  callback:
-    post:
+    put:
       tags:
-        - Anulación
-      summary: Generar callback.
-      description: |
-        Desde la aplicación de payku, puedes generar la **url** de notificación desde la sección de configuración.
+        - Suscripción
+      summary: Actualizar cliente
+      description: Este método permite la actualización de los datos de un cliente.
+      operationId: putSuscriptionById
+      parameters:
+        - name: id
+          in: path
+          description: Identificador único de transacción por payku.
+          required: true
+          schema:
+            type: string
+            pattern: " máximo 20 caracteres"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModifyClientResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X PUT \
+            https://BASE_URL/api/suclient/id \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+            -d {
+                "email": "johndoe@example.com",
+                "name": "John Doe Doe",
+                "phone": "923122312",
+                "address": "Moneda 121",
+                "country": "Chile",
+                "region": "Metropolitana",
+                "city": "Santiago",
+                "postal_code": "750000",
+                "additional_parameters":{
+                  "parameter_1": "example",
+                  "parameter_2": "example 2",
+                }
+              }'
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('PUT', 'https://BASE_URL//api/suclient/cla90927fa9b30e1dfffa0', [
+                'json' => [
+                  'email' => 'johndoe@example.com',
+                  'name' => 'John Doe Doe',
+                  'phone' => '923122312',
+                  'address' => 'Moneda 121',
+                  'country' => 'Chile',
+                  'region'  => 'Metropolitana',
+                  'city'    => 'Santiago',
+                  'postal_code' => '750000',
+                  'additional_parameters' => [
+                      'parameter_1' => 'example',
+                      'parameter_2' => 'example 2'
+                    ]
+                  ],
+                ],
+              ],
+              'headers' => [
+                'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                'Authorization' => 'Bearer TOKEN_PUBLICO'
+              ]
+            ])->getBody();
+            $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async (data) => {
+              const response = await fetch('https://BASE_URL/api/suclient', {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+                body: JSON.stringify(data)
+              });
+              const result = await response.json();
+              console.log(result)
+            }
 
-        <br>
-        <div class='container'>
-          <img src='/assets/Muestra-Url-Notificaciones.png' alt='Avatar' class='image' style='width:100%'>
-          <div class='middle'>
-            <a target='_blank' href='/assets/Muestra-Url-Notificaciones.png' class='text'>Ver ejemplo</a>
-          </div>
-        </div>
-
-            Ejemplo de la respuesta del callback:
-              {
-                  "id": "morexxzxxx",
-                  "id_transaction": "morexxzxxx",
-                  "ordencompra": "367734544",
-                  "fecha": "24-08-2023 12:29:35",
-                  "monto": 7000,
-                  "status": "complete"
+            let data = {
+              email: "johndoe@example.com",
+              name: "John Doe Doe",
+              phone: "923122312",
+              address: "Moneda 121",
+              country: "Chile",
+              region: "Metropolitana",
+              city: "Santiago",
+              postal_code: "750000",
+              additional_parameters:{
+                parameter_1: "example",
+                parameter_2: "example 2",
               }
+            };
+
+            request(data);
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  pattern: " máximo 50 caracteres"
+                  description: Nombre del cliente
+                  type: string
+                  example: "johndoe@example.com"
+                name:
+                  pattern: " máximo 80 caracteres"
+                  description: Nombre del cliente
+                  type: string
+                  example: "John Doe Doe"
+                phone:
+                  pattern: " máximo 20 caracteres"
+                  description: Teléfono del cliente.
+                  type: string
+                  example: "923122312"
+                address:
+                  pattern: " máximo 200 caracteres"
+                  description: Dirección del cliente.
+                  type: string
+                  example: "Moneda 121"
+                country:
+                  pattern: " máximo 40 caracteres"
+                  description: País del cliente.
+                  type: string
+                  example: "Chile"
+                region:
+                  pattern: " máximo 120 caracteres"
+                  description: Región del cliente.
+                  type: string
+                  example: "Metropolitana"
+                city:
+                  pattern: " máximo 40 caracteres"
+                  description: Ciudad del cliente.
+                  type: string
+                  example: "Santiago"
+                postal_code:
+                  pattern: " máximo 10 caracteres"
+                  description: Código postal del cliente.
+                  type: string
+                  example: "750000"
+                additional_parameters:
+                  pattern: " máximo 4000 caracteres"
+                  description: Parámetros adicionales del cliente (Opcional).
+                  type: object
+                  properties:
+                    parameter_1:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+                    parameter_2:
+                      description: Nombre del parámetro dado por el usuario payku
+                      type: string
+                      example: "example"
+
+    delete:
+      tags:
+        - Suscripción
+      summary: Eliminar cliente
+      description: Este método permite la eliminación de un cliente asociado a un ID de usuario.
+      operationId: deleteClientById
+      parameters:
+        - name: id
+          in: path
+          description: Identificador único del cliente creado por payku.
+          required: true
+          schema:
+            type: string
+            pattern: " máximo 20 caracteres"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeleteClientResponse"
+        "400":
+          description: Error en la solicitud.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error400"
+        "401":
+          description: Token Público incorrecto.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error401"
+      x-codeSamples:
+        - lang: "CURL"
+          source: |
+            curl -X DELETE \
+            https://BASE_URL/api/suclient/id \
+            -H 'Accept: application/json, text/plain, */*' \
+            -H 'Sign: SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO'  \
+            -H 'Authorization: Bearer TOKEN_PUBLICO'  \
+            -H 'Content-Type: application/json,application/json' \
+            -H 'Host: BASE_URL' \
+        - lang: "PHP"
+          source: |
+            $client = new \GuzzleHttp\Client();
+              $body = $client->request('DELETE', 'https://BASE_URL/api/suclient/cla90927fa9b30e1dfffa0', [
+                  'headers' => [
+                    'Sign' => 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                    'Authorization' => 'Bearer TOKEN_PUBLICO'              ]
+                  ])->getBody();
+                $response = json_decode($body);
+        - lang: "JS"
+          source: |
+            const request = async () => {
+              const response = await fetch('https://BASE_URL/api/suclient/cla90927fa9b30e1dfffa0', {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Sign': 'SHA256-REQUEST-PATH-VALUE-TOKEN-PRIVADO',
+                  'Authorization': 'Bearer TOKEN_PUBLICO'
+                },
+              });
+              const result = await response.json();
+              console.log(result)
+            }
+
+            request(data);
 
   /api/suclient/customers:
     get:
