@@ -368,9 +368,9 @@ tags:
       Permite el registro de clientes, para posteriormente realizar la distribución según porcentaje asignado.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/Diagrama-Marketplace.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/docs-apirest/assets/img/Diagrama-Marketplace.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/Diagrama-Marketplace.png' class='text'>Ver diagrama</a>
+          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Marketplace.png' class='text'>Ver diagrama</a>
         </div>
       </div>
   - name: Mall
@@ -380,9 +380,9 @@ tags:
       Ofreciendo la posibilidad de agrupar el pago de las compras realizadas en múltiples tiendas virtuales en una sola transacción.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/Diagrama-Mall.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/docs-apirest/assets/img/Diagrama-Mall.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/Diagrama-Mall.png' class='text'>Ver diagrama</a>
+          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Mall.png' class='text'>Ver diagrama</a>
         </div>
       </div>
   - name: Evento
@@ -392,9 +392,9 @@ tags:
       Permite la vinculación de un plan a un cliente, para posteriormente realizar cargos recurrentes automáticamente, según se defina en cada plan.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/Diagrama-Suscripcion.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/docs-apirest/assets/img/Diagrama-Suscripcion.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/Diagrama-Suscripcion.png' class='text'>Ver diagrama</a>
+          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Suscripcion.png' class='text'>Ver diagrama</a>
         </div>
       </div>
   - name: Suscripción de consumo
@@ -1625,9 +1625,9 @@ paths:
 
         <br>
         <div class='container'>
-          <img src='/docs-apirest/assets/Muestra-Url-Notificaciones.png' alt='Avatar' class='image' style='width:100%'>
+          <img src='/docs-apirest/assets/img/Muestra-Url-Notificaciones.png' alt='Avatar' class='image' style='width:100%'>
           <div class='middle'>
-            <a target='_blank' href='/docs-apirest/assets/Muestra-Url-Notificaciones.png' class='text'>Ver ejemplo</a>
+            <a target='_blank' href='/docs-apirest/assets/img/Muestra-Url-Notificaciones.png' class='text'>Ver ejemplo</a>
           </div>
         </div>
 
@@ -3108,9 +3108,9 @@ paths:
         Este método permite al usuario de una cuenta payku generar una transacción única a uno de sus clientes que encuentre suscrito a un plan de consumo.
         <br>
         <div class='container'>
-          <img src='/docs-apirest/assets/Diagrama-Sutransaction.png' alt='Avatar' class='image' style='width:100%'>
+          <img src='/docs-apirest/assets/img/Diagrama-Sutransaction.png' alt='Avatar' class='image' style='width:100%'>
           <div class='middle'>
-            <a target='_blank' href='/docs-apirest/assets/Diagrama-Sutransaction.png' class='text'>Ver diagrama</a>
+            <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Sutransaction.png' class='text'>Ver diagrama</a>
           </div>
         </div>
       responses:
