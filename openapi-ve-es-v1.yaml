@@ -3671,24 +3671,19 @@ components:
                 description: |
                   Código del banco al que pertenece la cuenta bancaria.
 
-                example: Banco de Chile
+                example: Banco de Venezuela
               name:
                 type: string
                 description: Nombre de la entidad bancaria.
-                example: Banco de Chile
+                example: Banco de Venezuela
               currency:
                 type: string
                 description: Moneda
                 Example: VES
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "VES"
-              }
-            - {
-                code: "0012",
-                name: "Banco Estado",
+                code: "0102",
+                name: "Banco de Venezuela",
                 currency: "VES"
               }
 
@@ -3732,12 +3727,6 @@ components:
                 payment: 17,
                 name: "Vepuy",
                 description: "Utiliza tu banco, simplifica tus transferencias."
-              }
-            - {
-                currency: "VES",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
               }
 
     MethodsPaymentCurrencyResponse:
