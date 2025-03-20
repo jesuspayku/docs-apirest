@@ -375,6 +375,10 @@ x-tagGroups:
     tags:
       - Transacción
       - Wallet
+  - name: Herramientas
+    tags:
+      - Bancos
+      - Métodos de pago
   - name: Info
     tags:
       - payku.cl
