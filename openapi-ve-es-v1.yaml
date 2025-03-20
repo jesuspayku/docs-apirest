@@ -1342,7 +1342,7 @@ paths:
                     Identificador del medio de pago. Si se envía el identificador, el pagador será redireccionado directamente al medio de pago que se indique.
                     - 17 Vepuy (moneda VES)
                   type: integer
-                  example: 1
+                  example: 17
                 expired:
                   description: |
                     Fecha en la cual expira la transacción
