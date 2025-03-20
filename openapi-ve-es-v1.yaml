@@ -1256,7 +1256,7 @@ paths:
                   'email' => 'johndoe@example.com',
                   'order' => "98745",
                   'subject' => 'Client Test',
-                  'amount' => 25000,
+                  'amount' => 25,
                   'payment' => 17,
                   'expired' => '2023-10-19 13:05:10',
                   'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=98745',
@@ -1332,7 +1332,7 @@ paths:
                   pattern: " máximo 14 dígitos"
                   description: Monto de la orden
                   type: integer
-                  example: 25000
+                  example: 25
                 currency:
                   pattern: " máximo 6 caracteres"
                   description: Moneda.
