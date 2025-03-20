@@ -6,6 +6,7 @@ servers:
     description: Sandbox server
 info:
   description: |
+    ¿Necesitas ver la documentación de los otros países?: <a href="https://jesuspayku.github.io/docs-apirest/index-pe-es-v1.html">Perú</a> | <a href="https://jesuspayku.github.io/docs-apirest/index-ve-es-v1.html">Venezuela</a>
     Seleccione el idioma de la documentación: ES | <a href="https://jesuspayku.github.io/docs-apirest/index-cl-en-v1.html">EN</a>
 
     <div style="
