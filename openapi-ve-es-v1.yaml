@@ -1242,7 +1242,8 @@ paths:
               "additional_parameters": {
                 "parameters1":"keyValue",
                 "parameters2":"keyValue",
-                "order_ext":"fff-777"
+                "order_ext":"fff-777", 
+                "code": "GATEWAY_CODE"
               }
             }'
         - lang: "PHP"
@@ -1261,7 +1262,8 @@ paths:
                   'additional_parameters' => [
                     'parameters1'=>'keyValue',
                     'parameters2'=>'keyValue',
-                    'order_ext'=>'fff-777'
+                    'order_ext'=>'fff-777',
+                    "code": "GATEWAY_CODE"
                     ]
                   ],
                 'headers' => [
@@ -1296,7 +1298,8 @@ paths:
               additional_parameters: {
                 parameters1:"keyValue",
                 parameters2:"keyValue",
-                order_ext:"fff-777"
+                order_ext:"fff-777",
+                "code": "GATEWAY_CODE" 
               }
             };
 
@@ -1414,6 +1417,25 @@ paths:
                       description: Identificador único proporcionado por el comercio, que permita a asociar la transacción a un identificador externo
                       type: string
                       example: "fff-777"
+                    code:
+                      description: Código de la pasarela de pago
+                      type: string
+                      example: |
+                        1. P2C PagoMovil (most popular)  
+                          GATEWAY_CODE: BAMRVECAP2C  
+
+                        2. C2P PagoMovil instant payment which can be done via 4 banks  
+                          GATEWAY_CODE: VZLAVECAC2P Banco Venezuela  
+                          GATEWAY_CODE: BMIGVECAC2P BancAmiga  
+                          GATEWAY_CODE: BAMRVECAC2P Mercantil  
+                          GATEWAY_CODE: CARBVECAC2P Bancaribe  
+
+                        3. Banesco BotonPago  
+                          GATEWAY_CODE: UNIOVECAP2C Banesco BotonPago  
+
+                        4. Card Methods (Debit)  
+                          GATEWAY_CODE: VZLAVECABIO BDV BioPago  
+
 
     get:
       tags:
