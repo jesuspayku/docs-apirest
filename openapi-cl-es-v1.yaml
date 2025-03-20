@@ -3733,6 +3733,7 @@ paths:
               "order": "5696",
               "subject": "Cliente Test",
               "amount": 25000,
+              "currency": "CLP",
               "payment": 1,
               "expired": "2023-10-19 13:05:10",
               "urlreturn": "https://youwebsite.com/urlreturn?orderClient=5696",
@@ -3752,6 +3753,7 @@ paths:
                   'order' => "98745",
                   'subject' => 'Client Test',
                   'amount' => 25000,
+                  "currency": "CLP",
                   'payment' => 1,
                   'expired' => '2023-10-19 13:05:10',
                   'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=98745',
@@ -3787,6 +3789,7 @@ paths:
               order: "98745",
               subject: "payment description",
               amount: 25000,
+              "currency": "CLP",
               payment: 1,
               expired: "2023-10-19 13:05:10",
               urlreturn: "https://youwebsite.com/urlreturn?orderClient=98745",
@@ -7086,11 +7089,6 @@ components:
                 name: "Banco de Chile",
                 currency: "CLP"
               }
-            - {
-                code: "0102",
-                name: "Banco de Venezuela",
-                currency: "VES"
-              }
 
     BanksCurrencyResponse:
       description: "Datos de retorno de la lista de bancos"
@@ -7169,12 +7167,6 @@ components:
                 description: Moneda
                 Example: CLP
           example:
-            - {
-                currency: "VES",
-                payment: 17,
-                name: "Vepuy",
-                description: "Utiliza tu banco, simplifica tus transferencias."
-              }
             - {
                 currency: "CLP",
                 payment: 1,

@@ -1500,7 +1500,7 @@ paths:
                 parameters1:"keyValue",
                 parameters2:"keyValue",
                 order_ext:"fff-777",
-                "code": "GATEWAY_CODE" 
+                "code": "GATEWAY_CODE"
               }
             };
 
