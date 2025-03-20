@@ -1421,7 +1421,7 @@ paths:
                       description: Código de la pasarela de pago
                       type: string
                       example: |
-                        1. P2C PagoMovil (most popular)  
+                        1. P2C PagoMovil (Más popular)  
                           GATEWAY_CODE: BAMRVECAP2C  
 
                         2. C2P PagoMovil instant payment which can be done via 4 banks  
