@@ -479,8 +479,6 @@ paths:
               console.log(result)
             }
             request();
-
-paths:
   /api/wallet/payout:
     post:
       operationId: payout
