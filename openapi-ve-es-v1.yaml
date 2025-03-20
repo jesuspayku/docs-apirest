@@ -1420,10 +1420,12 @@ paths:
                     code:
                       description: |
                         1. P2C PagoMovil (Más popular)  
+
                           GATEWAY_CODE: BAMRVECAP2C  
                         
 
                         2. C2P PagoMovil pago instantáneo que se puede realizar a través de 4 bancos.
+
                           GATEWAY_CODE: VZLAVECAC2P Banco Venezuela  
                           GATEWAY_CODE: BMIGVECAC2P BancAmiga  
                           GATEWAY_CODE: BAMRVECAC2P Mercantil  
@@ -1431,10 +1433,12 @@ paths:
                         
 
                         3. Banesco BotonPago  
+
                           GATEWAY_CODE: UNIOVECAP2C Banesco BotonPago  
                         
 
                         4. Card Methods (Debito)  
+                        
                           GATEWAY_CODE: VZLAVECABIO BDV BioPago  
                       type: string
 
