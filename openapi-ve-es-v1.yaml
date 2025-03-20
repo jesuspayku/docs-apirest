@@ -432,7 +432,7 @@ paths:
 
             request();
 
-  /api/banks?currency=clp:
+  /api/banks?currency=ves:
     get:
       tags:
         - Bancos
@@ -479,6 +479,7 @@ paths:
               console.log(result)
             }
             request();
+            
   /api/wallet/payout:
     post:
       operationId: payout
