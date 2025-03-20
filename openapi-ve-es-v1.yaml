@@ -1421,17 +1421,17 @@ paths:
                       description: |
                         1. P2C PagoMovil (Más popular)  
                           GATEWAY_CODE: BAMRVECAP2C  
-
+                        |
                         2. C2P PagoMovil instant payment which can be done via 4 banks  
                           GATEWAY_CODE: VZLAVECAC2P Banco Venezuela  
                           GATEWAY_CODE: BMIGVECAC2P BancAmiga  
                           GATEWAY_CODE: BAMRVECAC2P Mercantil  
                           GATEWAY_CODE: CARBVECAC2P Bancaribe  
-
+                        |
                         3. Banesco BotonPago  
                           GATEWAY_CODE: UNIOVECAP2C Banesco BotonPago  
-
-                        4. Card Methods (Debit)  
+                        |
+                        4. Card Methods (Debito)  
                           GATEWAY_CODE: VZLAVECABIO BDV BioPago  
                       type: string
 
