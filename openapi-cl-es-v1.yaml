@@ -6,7 +6,7 @@ servers:
     description: Sandbox server
 info:
   description: |
-    Seleccione el idioma de la documentación: ES | <a href="https://endocs.payku.cl/">EN</a>
+    Seleccione el idioma de la documentación: ES | <a href="https://jesuspayku.github.io/docs-apirest/index-cl-en-v1.html">EN</a>
 
     <div style="
     background: #2F39D1;
