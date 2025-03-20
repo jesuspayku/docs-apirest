@@ -6,7 +6,9 @@ servers:
     description: Sandbox server
 info:
   description: |
-    Select the language of the documentation: <a href="https://docs.payku.cl/">ES</a> | EN
+    Do you need to see the documentation from other countries?: Chile | <a href="https://jesuspayku.github.io/docs-apirest/index-pe-en-v1.html">Perú</a> | <a href="https://jesuspayku.github.io/docs-apirest/index-ve-en-v1.html">Venezuela</a>
+    
+    Select the language of the documentation: <a href="https://jesuspayku.github.io/docs-apirest/index-cl-es-v1.html">ES</a> | EN
 
     <div style="
     background: #2F39D1;
@@ -357,9 +359,9 @@ tags:
       It allows the creation of transactions and later check their status.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/img/Diagrama-Transaction.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/assets/img/Diagram-Transaction.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Transaction.png' class='text'>View</a>
+          <a target='_blank' href='/assets/img/Diagram-Transaction.png' class='text'>View</a>
         </div>
       </div>
   - name: Escrow Transaction
@@ -371,7 +373,7 @@ tags:
       It allows the registration of clients, to later carry out the distribution according to the assigned percentage.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/img/Diagrama-Marketplace.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/assets/img/Diagram-Marketplace.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
           <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Marketplace.png' class='text'>View</a>
         </div>
@@ -383,9 +385,9 @@ tags:
       Offering the possibility of grouping the payment of purchases made in multiple virtual stores in a single transaction.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/img/Diagrama-Mall.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/assets/img/Diagram-Mall.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Mall.png' class='text'>View</a>
+          <a target='_blank' href='/assets/img/Diagram-Mall.png' class='text'>View</a>
         </div>
       </div>
   - name: Event
@@ -395,9 +397,9 @@ tags:
       It allows the linking of a plan to Clients, to later make recurring charges automatically, as defined in each plan.
       <br>
       <div class='container'>
-        <img src='/docs-apirest/assets/img/Diagrama-Subscription.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/assets/img/Diagram-Subscription.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/docs-apirest/assets/img/Diagrama-Subscription.png' class='text'>View</a>
+          <a target='_blank' href='/assets/img/Diagram-Subscription.png' class='text'>View</a>
         </div>
       </div>
   - name: Consumption Subscription
@@ -1703,9 +1705,9 @@ paths:
 
         <br>
         <div class='container'>
-          <img src='/docs-apirest/assets/img/Muestra-Url-Notificaciones.png' alt='Avatar' class='image' style='width:100%'>
+          <img src='/assets/img/Show-Url-Notifications.png' alt='Avatar' class='image' style='width:100%'>
           <div class='middle'>
-            <a target='_blank' href='/docs-apirest/assets/img/Muestra-Url-Notificaciones.png' class='text'>See example</a>
+            <a target='_blank' href='/assets/img/Show-Url-Notifications.png' class='text'>See example</a>
           </div>
         </div>
 
@@ -3037,9 +3039,9 @@ paths:
         This method allows the user of a Payku account to generate a unique transaction to one of his clients who are subscribed to a consumption plan.
         <br>
         <div class='container'>
-          <img src='/docs-apirest/assets/img/Diagrama-sutransaction.png' alt='Avatar' class='image' style='width:100%'>
+          <img src='/assets/img/Diagram-Subscription.png' alt='Avatar' class='image' style='width:100%'>
           <div class='middle'>
-            <a target='_blank' href='/docs-apirest/assets/img/Diagrama-sutransaction.png' class='text'>View</a>
+            <a target='_blank' href='/assets/img/Diagram-Subscription.png' class='text'>View</a>
           </div>
         </div>
       responses:
