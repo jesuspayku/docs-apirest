@@ -1418,9 +1418,7 @@ paths:
                       type: string
                       example: "fff-777"
                     code:
-                      description: Código de la pasarela de pago
-                      type: string
-                      example: |
+                      description: |
                         1. P2C PagoMovil (Más popular)  
                           GATEWAY_CODE: BAMRVECAP2C  
 
@@ -1435,7 +1433,7 @@ paths:
 
                         4. Card Methods (Debit)  
                           GATEWAY_CODE: VZLAVECABIO BDV BioPago  
-
+                      type: string
 
     get:
       tags:
