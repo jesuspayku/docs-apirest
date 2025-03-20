@@ -3756,15 +3756,9 @@ components:
           example:
             - {
                 currency: "VES",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
-              }
-            - {
-                currency: "VES",
-                payment: 9,
-                name: "MACH",
-                description: "Paga en comercios online internacionales y nacionales"
+                payment: 17,
+                name: "Vepuy",
+                description: "Utiliza tu banco, simplifica tus transferencias."
               }
 
     EscrowResponse:
