@@ -6791,7 +6791,7 @@ components:
             currency:
               type: string
               description: Currency.
-              example: "CLP"
+              example: "PEN"
         nullify:
           description: "Objeto que contiene información de la respuesta de la anulación"
           type: object

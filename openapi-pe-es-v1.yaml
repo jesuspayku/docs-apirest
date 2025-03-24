@@ -862,7 +862,6 @@ paths:
                   pattern: " máximo 200 caracteres"
                   description: |
                     Número de cuenta del cliente.
-                      - **Para el banco "banco estado" (sbif 0012) el máximo de caracteres es 12 Este banco es el más común en Chile, es bueno agregar la validación de máximo de dígitos de 12. Esto evita que los usuarios ingresen su número de tarjeta de débito Para el resto de los bancos, puede tener más de 12 caracteres ya que los bancos no están estandarizados en su formato de número de cuenta.**
                   type: string
                   example: "12312312312"
                 url_notify:
