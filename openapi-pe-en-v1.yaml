@@ -3696,12 +3696,12 @@ paths:
                   pattern: " maximum 14 digits"
                   description: Order amount.
                   type: integer
-                  example: 25000
+                  example: 2500
                 currency:
                   pattern: " maximum 6 characters"
                   description: Currency.
                   type: string
-                  example: "CLP"
+                  example: "PEN"
                 payment:
                   pattern: " maximum 2 characters"
                   description: |
@@ -3720,7 +3720,7 @@ paths:
                     - 101 Webpay plus (4 a 6 quotas)
                     - 102 Webpay plus (7 a 12 quotas)
                   type: integer
-                  example: 1
+                  example: 20
                 expired:
                   description: |
                     Date on which the transaction expires

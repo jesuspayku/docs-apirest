@@ -4041,12 +4041,12 @@ paths:
                   pattern: " máximo 14 dígitos"
                   description: Monto de la orden
                   type: integer
-                  example: 25000
+                  example: 2500
                 currency:
                   pattern: " máximo 6 caracteres"
                   description: Moneda.
                   type: string
-                  example: "CLP"
+                  example: "PEN"
                 payment:
                   pattern: " máximo 2 caracteres"
                   description: |
@@ -4065,7 +4065,7 @@ paths:
                     - 101 Webpay plus (4 a 6 cuotas)
                     - 102 Webpay plus (7 a 12 cuotas)
                   type: integer
-                  example: 1
+                  example: 20
                 expired:
                   description: |
                     Fecha en la cual expira la transacción
