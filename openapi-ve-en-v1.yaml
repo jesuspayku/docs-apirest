@@ -5299,14 +5299,9 @@ components:
                 Example: VES
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "CLP"
-              }
-            - {
-                code: "0012",
-                name: "Banco Estado",
-                currency: "CLP"
+                code: "0102",
+                name: "Banco de Venezuela",
+                currency: "VES"
               }
 
 
