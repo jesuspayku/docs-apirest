@@ -431,7 +431,7 @@ paths:
 
             request();
 
-  /api/banks?currency=clp:
+  /api/banks?currency=pen:
     get:
       tags:
         - Banks
@@ -528,7 +528,7 @@ paths:
 
             request();
 
-  /api/paymentmethods?currency=clp:
+  /api/paymentmethods?currency=pen:
     get:
       tags:
         - Methods of payment
@@ -3597,18 +3597,19 @@ paths:
             -H 'Content-Type: application/json,application/json' \
             -H 'Host: BASE-URL' \
             -d '{
-              "email": "test@domain.com",
-              "order": "5696"
-              "subject": "Cliente Test",
-              "amount": 25000,
-              "payment": 1,
-              "expired": "2022-10-19 13:05:10",
-              "urlreturn": "https://youwebsite.com/urlreturn?orderClient=123",
-              "urlnotify": "https://youwebsite.com/urlnotify?orderClient=123",
+              "email": "johndoe@example.com",
+              "order": "98745",
+              "subject": "Payment Description",
+              "amount": 2500,
+              "currency": "PEN",
+              "payment": 20,
+              "expired": "2023-10-19 13:05:10",
+              "urlreturn": "https://youwebsite.com/urlreturn?orderClient=98745",
+              "urlnotify": "https://www.youwebsite.com/urlnotify?orderClient=98745",
               "additional_parameters": {
-                "parameters1":"keyValue",
-                "parameters2":"keyValue2",
-                "order_ext":"fff-777"
+                "parameters1": "keyValue",
+                "parameters2": "keyValue",
+                "order_ext": "fff-777"
               }
             }'
         - lang: "PHP"
@@ -3616,11 +3617,12 @@ paths:
             $client = new \GuzzleHttp\Client();
               $body = $client->request('POST', 'https://BASE_URL/api/transaction', [
                 'json' => [
-                  'email' => 'joedoe@gmail.cl',
+                  'email' => 'johndoe@example.com',
                   'order' => "98745",
-                  'subject' => 'Client Test',
-                  'amount' => 25000,
-                  'payment' => 1,
+                  'subject' => 'Payment Description',
+                  'amount' => 2500,
+                  "currency": "PEN",
+                  'payment' => 20,
                   'expired' => '2022-10-19 13:05:10',
                   'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=123',
                   'urlnotify' => 'https://youwebsite.com/urlnotify?orderClient=123',
@@ -3651,11 +3653,12 @@ paths:
             }
 
             let data = {
-              email: "joedoe@gmail.com",
+              email: "johndoe@example.com",
               order: "98745",
-              subject: "test subject",
-              amount: 25000,
-              payment: 1,
+              subject: "Payment Description",
+              amount: 2500,
+              "currency": "PEN",
+              payment: 20,
               expired: "2022-10-19 13:05:10",
               urlreturn: "https://youwebsite.com/urlreturn?orderClient=123",
               urlnotify: "https://youwebsite.com/urlnotify?orderClient=123",
