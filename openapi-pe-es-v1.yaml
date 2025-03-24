@@ -424,15 +424,7 @@ x-tagGroups:
   - name: ''
     tags:
       - Transacción
-      - Transacción Escrow
-      - Anulación
-      - Marketplace
-      - Mall
-      - Evento
-      - Suscripción
-      - Suscripción de consumo
       - Wallet
-      - Conciliación
   - name: Herramientas
     tags:
       - Bancos
