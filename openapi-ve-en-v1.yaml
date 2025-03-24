@@ -5406,16 +5406,10 @@ components:
                 Example: CLP
           example:
             - {
-                currency: "CLP",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
-              }
-            - {
-                currency: "CLP",
-                payment: 9,
-                name: "MACH",
-                description: "Paga en comercios online internacionales y nacionales"
+                currency: "VES",
+                payment: 17,
+                name: "VEPUY",
+                description: "Use your bank, simplify your transfers."
               }
 
     AdminClientResponse:
