@@ -5317,25 +5317,20 @@ components:
                 type: string
                 description: |
                   Bank code of the bank to which the bank account belongs.
-                example: Banco de Chile
+                example: Citibank Perú S.A.
               name:
                 type: string
                 description: Name of bank.
-                example: Banco de Chile
+                example: Citibank Perú S.A.
               currency:
                 type: string
                 description: Currency
-                Example: CLP
+                Example: PEN
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "CLP"
-              }
-            - {
-                code: "0012",
-                name: "Banco Estado",
-                currency: "CLP"
+                code: "007",
+                name: "Citibank Perú S.A.",
+                currency: "PEN"
               }
 
 
@@ -5375,16 +5370,10 @@ components:
                 Example: CLP
           example:
             - {
-                currency: "VES",
-                payment: 17,
-                name: "Vepuy",
-                description: "Utiliza tu banco, simplifica tus transferencias."
-              }
-            - {
-                currency: "CLP",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
+                currency: "PEN",
+                payment: 20,
+                name: "Safety Pay",
+                description: ""
               }
 
     MethodsPaymentCurrencyResponse:
