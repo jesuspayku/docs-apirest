@@ -422,15 +422,7 @@ x-tagGroups:
   - name: ''
     tags:
       - Transaction
-      - Escrow Transaction
-      - Nullification
-      - Marketplace
-      - Mall
-      - Event
-      - Subscription
-      - Consumption Subscription
       - Wallet
-      - Conciliation
   - name: Tools
     tags:
       - Banks
