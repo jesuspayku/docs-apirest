@@ -7313,25 +7313,20 @@ components:
                 description: |
                   Código del banco al que pertenece la cuenta bancaria.
 
-                example: Banco de Chile
+                example: Citibank Perú S.A.
               name:
                 type: string
                 description: Nombre de la entidad bancaria.
-                example: Banco de Chile
+                example: Citibank Perú S.A.
               currency:
                 type: string
                 description: Moneda
-                Example: CLP
+                Example: PEN
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "CLP"
-              }
-            - {
-                code: "0012",
-                name: "Banco Estado",
-                currency: "CLP"
+                code: "007",
+                name: "Citibank Perú S.A.",
+                currency: "PEN"
               }
 
     MethodsPaymentResponse:
@@ -7359,7 +7354,7 @@ components:
                 type: number
                 description: |
                   Código que pertenece al método de pago.
-                example: 17
+                example: 20
               name:
                 type: string
                 description: Nombre del método de pago.
@@ -7367,19 +7362,13 @@ components:
               currency:
                 type: string
                 description: Moneda
-                Example: CLP
+                Example: PEN
           example:
             - {
-                currency: "VES",
-                payment: 17,
-                name: "Vepuy",
-                description: "Utiliza tu banco, simplifica tus transferencias."
-              }
-            - {
-                currency: "CLP",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
+                currency: "PEN",
+                payment: 20,
+                name: "Safety Pay",
+                description: ""
               }
 
     MethodsPaymentCurrencyResponse:
