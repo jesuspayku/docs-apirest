@@ -711,7 +711,7 @@ paths:
             -d '{
               "email": "johndoe@example.com",
               "phone": "923122312",
-              "subject": "payOut description",
+              "subject": "Payout Description",
               "currency": "PEN",
               "order": "98745",
               "amount": 2500,
@@ -734,7 +734,7 @@ paths:
                 'json' => [
                     'email' => 'example@payku.cl',
                     'phone' => '923122312',
-                    'subject' => 'payOut description',
+                    'subject' => 'Payout Description',
                     'order' => "133222",
                     'currency' => 'PEN',
                     'amount' =>  2500,
@@ -776,7 +776,7 @@ paths:
             let data = {
               "email": "example@payku.cl",
               "phone": "123456789",
-              "subject": "payOut description",
+              "subject": "Payout Description",
               "currency": "PEN",
               "order": "133222",
               "amount":  2500,
@@ -816,12 +816,12 @@ paths:
                   pattern: " maximum 200 characters"
                   description: Order Description
                   type: string
-                  example: test subject
+                  example: Payout Description
                 currency:
                   pattern: " maximum 6 characters"
                   description: Currency description (ISO format)
                   type: string
-                  example: "CLP"
+                  example: "PEN"
                 order:
                   pattern: " maximum 80 characters"
                   description: E-commerce order
@@ -831,7 +831,7 @@ paths:
                   pattern: " maximum 14 digits"
                   description: Order amount
                   type: integer
-                  example: 25000
+                  example: 2500
                 accountbank_name:
                   pattern: "  maximum 180 characters"
                   description: Name of the destination account holder
@@ -847,7 +847,7 @@ paths:
                   description: |
                     Code of the bank to which the bank account belongs.
                   type: string
-                  example: "0001"
+                  example: "002"
                 accountbank_type:
                   pattern: "  maximum 1 character"
                   description: |
@@ -856,7 +856,7 @@ paths:
                     - 2 Vista/Cuenta RUT
                     - 3 Ahorro
                   type: string
-                  example: "1"
+                  example: "2"
                 accountbank_num:
                   pattern: " maximum 200 characters"
                   description: |
