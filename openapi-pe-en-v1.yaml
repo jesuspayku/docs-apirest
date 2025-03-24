@@ -3691,7 +3691,7 @@ paths:
                   pattern: " maximum 2000 characters"
                   description: Description of the order.
                   type: string
-                  example: test subject
+                  example: Payment Description
                 amount:
                   pattern: " maximum 14 digits"
                   description: Order amount.
