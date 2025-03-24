@@ -5289,17 +5289,12 @@ components:
               currency:
                 type: string
                 description: Currency
-                Example: CLP
+                Example: PEN
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "CLP"
-              }
-            - {
-                code: "0102",
-                name: "Banco de Venezuela",
-                currency: "VES"
+                code: "007",
+                name: "Citibank Perú S.A.",
+                currency: "PEN"
               }
 
     BanksCurrencyResponse:
@@ -5420,19 +5415,13 @@ components:
               currency:
                 type: string
                 description: Currency
-                Example: CLP
+                Example: PEN
           example:
             - {
-                currency: "CLP",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
-              }
-            - {
-                currency: "CLP",
-                payment: 9,
-                name: "MACH",
-                description: "Paga en comercios online internacionales y nacionales"
+                currency: "PEN",
+                payment: 20,
+                name: "Safety Pay",
+                description: ""
               }
 
     AdminClientResponse:
