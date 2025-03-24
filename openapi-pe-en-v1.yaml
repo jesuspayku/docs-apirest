@@ -1110,7 +1110,7 @@ paths:
     get:
       tags:
         - Wallet
-      summary: "get moves"
+      summary: "Get moves"
       description: |
                   This method allows you to obtain the movements of your virtual wallet **payku**, this method allows pagination with a maximum of 4000 records per page, In addition, it has the following filters:
 
@@ -1250,7 +1250,7 @@ paths:
     get:
       tags:
         - Wallet
-      summary: "get payout"
+      summary: "Get payout"
       description: |
         This method allows you to obtain a movement of payments to third parties from your **payku** virtual wallet using an identifier:
 
@@ -1320,7 +1320,7 @@ paths:
     get:
       tags:
         - Wallet
-      summary: "get payout V3"
+      summary: "Get payout V3"
       description: |
         This method allows you to obtain a movement of payments to third parties from your **payku** virtual wallet using an identifier:
 
