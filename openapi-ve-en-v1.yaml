@@ -304,9 +304,9 @@ tags:
       It allows the creation of transactions and later check their status.
       <br>
       <div class='container'>
-        <img src='/assets/Diagrama-Transaction.png' alt='Avatar' class='image' style='width:100%'>
+        <img src='/assets/Diagram-Transaction.png' alt='Avatar' class='image' style='width:100%'>
         <div class='middle'>
-          <a target='_blank' href='/assets/Diagrama-Transaction.png' class='text'>View</a>
+          <a target='_blank' href='/assets/Diagram-Transaction.png' class='text'>View</a>
         </div>
       </div>
   - name: Escrow Transaction
