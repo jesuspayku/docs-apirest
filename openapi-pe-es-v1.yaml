@@ -283,59 +283,6 @@ info:
     Para realizar pruebas a nuestra API de forma rapida puede utilizar la colección y el ambiente de Postman
     que se encuentran en el siguiente repositorio: <a target="_blank" href="https://github.com/Paykucl/doc-apirest-postman">Colección postman</a>
 
-    # Tarjetas de prueba
-
-    Para realizar pruebas de transacciones utilice estas tarjetas:
-
-    <div class="content">
-      <table class="center">
-        <thead>
-          <tr>
-            <th style="text-align:center; width:25%"><strong>Tipo de tarjeta</strong></th>
-            <th style="text-align:center; width:37.5%"><strong>Detalle</strong></th>
-            <th style="text-align:center; width:37.5%"><strong>Resultado</strong></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>VISA</td>
-            <td align="center">4051 8856 0044 6623 CVV 123 cualquier fecha de expiración</td>
-            <td align="center">Genera transacciones aprobadas.</td>
-          </tr>
-          <tr>
-            <td>AMEX</td>
-            <td align="center">3700 0000 0002 032 CVV 1234 cualquier fecha de expiración</td>
-            <td align="center">Genera transacciones aprobadas.</td>
-          </tr>
-          <tr>
-            <td>MASTERCARD</td>
-            <td align="center">5186 0595 5959 0568 CVV 123 cualquier fecha de expiración</td>
-            <td align="center">Genera transacciones rechazadas.</td>
-          </tr>
-          <tr>
-            <td>Redcompra</td>
-            <td>4051 8842 3993 7763</td>
-            <td align="center">Genera transacciones aprobadas (para operaciones que permiten débito Redcompra y prepago)</td>
-          </tr>
-          <tr>
-            <td>Redcompra</td>
-            <td>5186 0085 4123 3829</td>
-            <td align="center">Genera transacciones rechazadas (para operaciones que permiten débito Redcompra y prepago)</td>
-          </tr>
-          <tr>
-            <td>Prepago VISA</td>
-            <td>4051 8860 0005 6590 CVV 123 cualquier fecha de expiración</td>
-            <td align="center">Genera transacciones aprobadas.</td>
-          </tr>
-          <tr>
-            <td>Prepago MASTERCARD</td>
-            <td>5186 1741 1062 9480 CVV 123 cualquier fecha de expiración</td>
-            <td align="center">Genera transacciones rechazadas.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     Cuando aparece el formulario de autenticación con RUT y clave, se debe usar el RUT 11.111.111-1 y la clave 123.
 
   version: "2.1.01"
