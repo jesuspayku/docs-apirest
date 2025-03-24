@@ -839,7 +839,7 @@ paths:
                 accountbank_rut:
                   pattern: " máximo 15 caracteres"
                   description: |
-                    Documento de identidad del titular de la cuenta en Chile
+                    Documento de identidad del titular de la cuenta en Perú
                     Formato: 111111111
                   type: string
                   example: "111111111"
