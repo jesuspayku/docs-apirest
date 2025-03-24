@@ -709,24 +709,23 @@ paths:
             -H 'Content-Type: application/json,application/json' \
             -H 'Host: BASE-URL' \
             -d '{
-              "email": "example@payku.cl",
-              "phone": "123456789",
-              "subject": "subject",
-              "currency": "CLP",
+              "email": "johndoe@example.com",
+              "phone": "923122312",
+              "subject": "payOut description",
+              "currency": "PEN",
               "order": "98745",
-              "amount":  1000,
-              "accountbank_name": "example name",
+              "amount": 2500,
+              "accountbank_name": "Jhon Doe",
               "accountbank_rut": "111111111",
-              "accountbank_sbif": "0001",
-              "accountbank_type": "1",
+              "accountbank_sbif": "002",
+              "accountbank_type": "2",
               "accountbank_num": "12312312312",
-              "url_notify": "https://youwebsite.com/urlnotify?orderClient=98745",
-              "additional_parameters":
-                {
-                "parameters1": "keyValue",
-                "parameters2": "keyValue2",
+              "url_notify": "https://www.youwebsite.com/urlnotify?orderClient=98745",
+              "additional_parameters": {
+                "parameter_1": "keyValue",
+                "parameter_2": "keyValue",
                 "order_ext": "fff-777"
-                }
+              }
             }'
         - lang: "PHP"
           source: |
@@ -734,15 +733,15 @@ paths:
               $body = $client->request('POST', 'https://BASE_URL/api/wallet/payout', [
                 'json' => [
                     'email' => 'example@payku.cl',
-                    'phone' => '123456789',
-                    'subject' => 'subject',
+                    'phone' => '923122312',
+                    'subject' => 'payOut description',
                     'order' => "133222",
-                    'currency' => 'CLP',
-                    'amount' =>  1000,
-                    'accountbank_name' => 'example name',
+                    'currency' => 'PEN',
+                    'amount' =>  2500,
+                    'accountbank_name' => 'Jhon Doe',
                     'accountbank_rut' => '111111111',
-                    'accountbank_sbif' => '0001',
-                    'accountbank_type' => '1',
+                    'accountbank_sbif' => '002',
+                    'accountbank_type' => '2',
                     'accountbank_num' => '12312312312',
                     'url_notify' => 'https://youwebsite.com/urlnotify?orderClient=98745',
                     'additional_parameters' =>
@@ -777,14 +776,14 @@ paths:
             let data = {
               "email": "example@payku.cl",
               "phone": "123456789",
-              "subject": "subject",
-              "currency": "CLP",
+              "subject": "payOut description",
+              "currency": "PEN",
               "order": "133222",
-              "amount":  1000,
-              "accountbank_name": "example name",
+              "amount":  2500,
+              "accountbank_name": "Jhon Doe",
               "accountbank_rut": "111111111",
-              "accountbank_sbif": "0001",
-              "accountbank_type": "1",
+              "accountbank_sbif": "002",
+              "accountbank_type": "2",
               "accountbank_num": "12312312312",
               "url_notify": "https://youwebsite.com/urlnotify?orderClient=98745",
               "additional_parameters":
