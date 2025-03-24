@@ -7128,16 +7128,10 @@ components:
                 Example: CLP
           example:
             - {
-                currency: "CLP",
-                payment: 1,
-                name: "Webpay",
-                description: "Visa, Mastercard, Magna, American, Diners y Redcompra."
-              }
-            - {
-                currency: "CLP",
-                payment: 9,
-                name: "MACH",
-                description: "Paga en comercios online internacionales y nacionales"
+                currency: "PEN",
+                payment: 20,
+                name: "Safety Pay",
+                description: ""
               }
 
     EscrowResponse:
