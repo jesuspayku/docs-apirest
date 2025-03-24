@@ -5403,7 +5403,7 @@ components:
               currency:
                 type: string
                 description: Currency
-                Example: CLP
+                Example: VES
           example:
             - {
                 currency: "VES",
@@ -5630,7 +5630,7 @@ components:
                   currency:
                     description: Currency.
                     type: string
-                    example: "CLP"
+                    example: "VES"
             cards:
               type: array
               items:
@@ -5801,7 +5801,7 @@ components:
                   currency:
                     description: currency.
                     type: string
-                    example: "CLP"
+                    example: "VES"
             cards:
               type: array
               items:

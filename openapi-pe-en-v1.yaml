@@ -552,20 +552,20 @@ paths:
         - lang: "CURL"
           source: |
             curl -X GET \
-            https://BASE-URL/api/paymentmethods?currency=clp  \
+            https://BASE-URL/api/paymentmethods?currency=pen  \
             -H 'Accept: application/json, text/plain, */*' \
             -H 'Content-Type: application/json,application/json' \
             -H 'Host: BASE-URL' \
         - lang: "PHP"
           source: |
             $client = new \GuzzleHttp\Client();
-              $body = $client->request('GET', 'https://BASE_URL/api/paymentmethods?currency=clp', [
+              $body = $client->request('GET', 'https://BASE_URL/api/paymentmethods?currency=pen', [
               ])->getBody();
             $response = json_decode($body);
         - lang: "JS"
           source: |
             const request = async () => {
-              const response = await fetch('https://BASE_URL/api/paymentmethods?currency=clp', {
+              const response = await fetch('https://BASE_URL/api/paymentmethods?currency=pen', {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
