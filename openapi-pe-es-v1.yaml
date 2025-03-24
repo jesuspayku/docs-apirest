@@ -7287,14 +7287,9 @@ components:
                 Example: CLP
           example:
             - {
-                code: "0001",
-                name: "Banco de Chile",
-                currency: "CLP"
-              }
-            - {
-                code: "0102",
-                name: "Banco de Venezuela",
-                currency: "VES"
+                code: "007",
+                name: "Citibank Perú S.A.",
+                currency: "PEN"
               }
 
     BanksCurrencyResponse:
