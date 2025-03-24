@@ -321,30 +321,6 @@ tags:
           <a target='_blank' href='/assets/Diagrama-Marketplace.png' class='text'>View</a>
         </div>
       </div>
-  - name: Mall
-    description: |
-      The product has been specially designed for those integrating companies of different brands with different lines of business which can be grouped while maintaining their diversity in the same virtual space or mall.
-
-      Offering the possibility of grouping the payment of purchases made in multiple virtual stores in a single transaction.
-      <br>
-      <div class='container'>
-        <img src='/assets/Diagrama-Mall.png' alt='Avatar' class='image' style='width:100%'>
-        <div class='middle'>
-          <a target='_blank' href='/assets/Diagrama-Mall.png' class='text'>View</a>
-        </div>
-      </div>
-  - name: Event
-    description: It allows the creation of events and later check their status.
-  - name: Subscription
-    description: |
-      It allows the linking of a plan to Clients, to later make recurring charges automatically, as defined in each plan.
-      <br>
-      <div class='container'>
-        <img src='/assets/Diagrama-Subscription.png' alt='Avatar' class='image' style='width:100%'>
-        <div class='middle'>
-          <a target='_blank' href='/assets/Diagrama-Subscription.png' class='text'>View</a>
-        </div>
-      </div>
   - name: Consumption Subscription
     description: |
       It is the set of methods that will allow our users to create clients, plans, subscriptions and carry out consumer plan transactions.
@@ -367,13 +343,7 @@ x-tagGroups:
   - name: ''
     tags:
       - Transaction
-      - Escrow Transaction
-      - Nullification
       - Marketplace
-      - Mall
-      - Event
-      - Subscription
-      - Consumption Subscription
       - Wallet
       - Conciliation
   - name: Tools
