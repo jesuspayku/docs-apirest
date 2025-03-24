@@ -3574,15 +3574,17 @@ paths:
               "email": "test@domain.com",
               "order": "5696"
               "subject": "Cliente Test",
-              "amount": 25000,
-              "payment": 1,
+              "amount": 25,
+              "currency": "VES",
+              "payment": 17,
               "expired": "2022-10-19 13:05:10",
               "urlreturn": "https://youwebsite.com/urlreturn?orderClient=123",
               "urlnotify": "https://youwebsite.com/urlnotify?orderClient=123",
               "additional_parameters": {
                 "parameters1":"keyValue",
                 "parameters2":"keyValue2",
-                "order_ext":"fff-777"
+                "order_ext":"fff-777",
+                "code": "GATEWAY_CODE"
               }
             }'
         - lang: "PHP"
@@ -3593,15 +3595,17 @@ paths:
                   'email' => 'joedoe@gmail.cl',
                   'order' => "98745",
                   'subject' => 'Client Test',
-                  'amount' => 25000,
-                  'payment' => 1,
+                  'amount' => 25,
+                  "currency": "VES",
+                  'payment' => 17,
                   'expired' => '2022-10-19 13:05:10',
                   'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=123',
                   'urlnotify' => 'https://youwebsite.com/urlnotify?orderClient=123',
                     'additional_parameters' => [
                       'parameters1'=>'keyValue',
                       'parameters2'=>'keyValue2',
-                      'order_ext'=>'fff-777'
+                      'order_ext'=>'fff-777',
+                      "code": "GATEWAY_CODE"
                     ]
                   ],
                 'headers' => [
@@ -3628,15 +3632,17 @@ paths:
               email: "joedoe@gmail.com",
               order: "98745",
               subject: "test subject",
-              amount: 25000,
-              payment: 1,
+              amount: 25,
+              "currency": "VES",
+              payment: 17,
               expired: "2022-10-19 13:05:10",
               urlreturn: "https://youwebsite.com/urlreturn?orderClient=123",
               urlnotify: "https://youwebsite.com/urlnotify?orderClient=123",
               additional_parameters: {
                 parameters1:"keyValue",
                 parameters2:"keyValue2",
-                order_ext:"fff-777"
+                order_ext:"fff-777",
+                "code": "GATEWAY_CODE"
               }
             };
 
@@ -3754,6 +3760,28 @@ paths:
                       description: Unique identifier provided by the merchant, which allows the transaction to be associated with an external identifier
                       type: string
                       example: "fff-777"
+                    code:
+                      description: |
+                        P2C PagoMovil (Most popular)
+
+                        GATEWAY_CODE: BAMRVECAP2C
+
+                        C2P PagoMovil instant payment that can be made through 4 banks.
+
+                        GATEWAY_CODE: VZLAVECAC2P Banco Venezuela
+                        GATEWAY_CODE: BMIGVECAC2P BancAmiga
+                        GATEWAY_CODE: BAMRVECAC2P Mercantil
+                        GATEWAY_CODE: CARBVECAC2P Bancaribe
+
+                        Banesco BotonPago
+
+                        GATEWAY_CODE: UNIOVECAP2C Banesco BotonPago
+
+                        Card Methods (Debit)
+
+                        GATEWAY_CODE: VZLAVECABIO BDV BioPago
+                        type: string
+                        example: "GATEWAY_CODE"
               required:
                 - email
                 - order
