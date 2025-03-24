@@ -3706,19 +3706,7 @@ paths:
                   pattern: " maximum 2 characters"
                   description: |
                     Identifier of the payment method. If the identifier is sent, the payer will be redirected directly to the indicated means of payment.
-                    - 99 All
-                    - 1 Webpay
-                    - 4 Etpay
-                    - 6 Pago46
-                    - 8 Hites
-                    - 9 Mach
-                    - 11 Khipu
-                    - 15 ServiFacil
-                    - 17 Vepuy (moneda VES)
-                    - 19 Fintoc
-                    - 100 Webpay plus (1 a 3 quotas)
-                    - 101 Webpay plus (4 a 6 quotas)
-                    - 102 Webpay plus (7 a 12 quotas)
+                    - 20 Safety Pay (moneda PEN)
                   type: integer
                   example: 20
                 expired:
