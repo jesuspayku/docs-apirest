@@ -313,16 +313,7 @@ tags:
     description: This functionality will allow escrow accounts authorized by Payku to settle transactions.
   - name: Nullification
     description: Allows you to request the cancellation of a transaction made through payku.
-  - name: Marketplace
-    description: |
-      It allows the registration of clients, to later carry out the distribution according to the assigned percentage.
-      <br>
-      <div class='container'>
-        <img src='/assets/Diagrama-Marketplace.png' alt='Avatar' class='image' style='width:100%'>
-        <div class='middle'>
-          <a target='_blank' href='/assets/Diagrama-Marketplace.png' class='text'>View</a>
-        </div>
-      </div>
+
   - name: Consumption Subscription
     description: |
       It is the set of methods that will allow our users to create clients, plans, subscriptions and carry out consumer plan transactions.
@@ -345,9 +336,7 @@ x-tagGroups:
   - name: ''
     tags:
       - Transaction
-      - Marketplace
       - Wallet
-      - Conciliation
   - name: Tools
     tags:
       - Banks
