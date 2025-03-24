@@ -558,13 +558,13 @@ paths:
         - lang: "PHP"
           source: |
             $client = new \GuzzleHttp\Client();
-              $body = $client->request('GET', 'https://BASE_URL/api/paymentmethods?currency=clp', [
+              $body = $client->request('GET', 'https://BASE_URL/api/paymentmethods?currency=pe', [
               ])->getBody();
             $response = json_decode($body);
         - lang: "JS"
           source: |
             const request = async () => {
-              const response = await fetch('https://BASE_URL/api/paymentmethods?currency=clp', {
+              const response = await fetch('https://BASE_URL/api/paymentmethods?currency=pe', {
                 method: 'GET',
                 headers: {
                   'Content-Type': 'application/json'
@@ -709,23 +709,22 @@ paths:
             -H 'Host: BASE-URL' \
             -d '{
               "email": "johndoe@example.com",
-              "phone": "123456789",
-              "subject": "PayOut 133222",
-              "currency": "CLP",
-              "order": "133222",
-              "amount":  1000,
+              "phone": "923122312",
+              "subject": "payOut description",
+              "currency": "PEN",
+              "order": "98745",
+              "amount": 2500,
               "accountbank_name": "Jhon Doe",
               "accountbank_rut": "111111111",
-              "accountbank_sbif": "0001",
-              "accountbank_type": "1",
+              "accountbank_sbif": "002",
+              "accountbank_type": "2",
               "accountbank_num": "12312312312",
               "url_notify": "https://www.youwebsite.com/urlnotify?orderClient=98745",
-              "additional_parameters":
-                {
-                "parameters1": "keyValue",
-                "parameters2": "keyValue",
+              "additional_parameters": {
+                "parameter_1": "keyValue",
+                "parameter_2": "keyValue",
                 "order_ext": "fff-777"
-                }
+              }
             }'
         - lang: "PHP"
           source: |
@@ -733,15 +732,15 @@ paths:
               $body = $client->request('POST', 'https://BASE_URL/api/wallet/payout', [
                 'json' => [
                     'email' => 'johndoe@example.com',
-                    'phone' => '123456789',
-                    "subject": "payOut 9876",
-                    "order": 9876,
-                    'currency' => 'CLP',
-                    'amount' =>  1000,
+                    'phone' => '923122312',
+                    "subject": "payOut description",
+                    "order": 98745,
+                    'currency' => 'PEN',
+                    'amount' =>  2500,
                     'accountbank_name' => 'Jhon Doe',
                     'accountbank_rut' => '111111111',
-                    'accountbank_sbif' => '0001',
-                    'accountbank_type' => '1',
+                    'accountbank_sbif' => '002',
+                    'accountbank_type' => '2',
                     'accountbank_num' => '12312312312',
                     "url_notify" => "https://www.youwebsite.com/urlnotify?orderClient=98745",
                     'additional_parameters' =>
@@ -775,15 +774,15 @@ paths:
 
             let data = {
               "email": "johndoe@example.com",
-              "phone": "123456789",
+              "phone": "923122312",
               "subject": "PayOut 133222",
-              "currency": "CLP",
-              "order": 133222,
-              "amount":  1000,
+              "currency": "PEN",
+              "order": 98745,
+              "amount":  2500,
               "accountbank_name": "Jhon Doe",
               "accountbank_rut": "111111111",
-              "accountbank_sbif": "0001",
-              "accountbank_type": "1",
+              "accountbank_sbif": "002",
+              "accountbank_type": "2",
               "accountbank_num": "12312312312",
               "url_notify": "https://www.youwebsite.com/urlnotify?orderClient=98745",
               "additional_parameters":
