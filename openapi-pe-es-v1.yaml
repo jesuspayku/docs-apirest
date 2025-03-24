@@ -3943,19 +3943,20 @@ paths:
             -H 'Host: BASE-URL' \
             -d '{
               "email": "johndoe@example.com",
-              "order": "5696",
-              "subject": "Cliente Test",
-              "amount": 25000,
-              "payment": 1,
+              "order": "98745",
+              "subject": "Payment Description",
+              "amount": 2500,
+              "currency": "PEN",
+              "payment": 20,
               "expired": "2023-10-19 13:05:10",
-              "urlreturn": "https://youwebsite.com/urlreturn?orderClient=5696",
-              "urlnotify": "https://youwebsite.com/urlnotify?orderClient=5696",
+              "urlreturn": "https://youwebsite.com/urlreturn?orderClient=98745",
+              "urlnotify": "https://www.youwebsite.com/urlnotify?orderClient=98745",
               "additional_parameters": {
-                "parameters1":"keyValue",
-                "parameters2":"keyValue",
-                "order_ext":"fff-777"
+                "parameters1": "keyValue",
+                "parameters2": "keyValue",
+                "order_ext": "fff-777"
               }
-            }'
+            }''
         - lang: "PHP"
           source: |
             $client = new \GuzzleHttp\Client();
@@ -3963,20 +3964,21 @@ paths:
                 'json' => [
                   'email' => 'johndoe@example.com',
                   'order' => "98745",
-                  'subject' => 'Client Test',
-                  'amount' => 25000,
-                  'payment' => 1,
-                  'expired' => '2023-10-19 13:05:10',
-                  'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=98745',
-                  'urlnotify' => 'https://www.youwebsite.com/urlnotify?orderClient=98745',
-                  'additional_parameters' => [
-                    'parameters1'=>'keyValue',
-                    'parameters2'=>'keyValue',
-                    'order_ext'=>'fff-777'
+                  'subject' => 'Payment Description',
+                  'amount' => 2500,
+                  'currency'=> "PEN",
+                  'payment' => 20,
+                  'expired' => '2022-10-19 13:05:10',
+                  'urlreturn' => 'https://youwebsite.com/urlreturn?orderClient=123',
+                  'urlnotify' => 'https://youwebsite.com/urlnotify?orderClient=123',
+                    'additional_parameters' => [
+                      'parameters1'=>'keyValue',
+                      'parameters2'=>'keyValue2',
+                      'order_ext'=>'fff-777'
                     ]
                   ],
                 'headers' => [
-                  'Authorization' => 'Bearer TOKEN_PUBLICO'
+                  'Authorization' => 'Bearer PUBLIC-TOKEN'
                 ]
               ])->getBody();
             $response = json_decode($body);
@@ -3998,15 +4000,16 @@ paths:
             let data = {
               email: "johndoe@example.com",
               order: "98745",
-              subject: "payment description",
-              amount: 25000,
-              payment: 1,
-              expired: "2023-10-19 13:05:10",
-              urlreturn: "https://youwebsite.com/urlreturn?orderClient=98745",
-              urlnotify: "https://www.youwebsite.com/urlnotify?orderClient=98745",
+              subject: "Payment Description",
+              amount: 2500,
+              currency: "PEN",
+              payment: 20,
+              expired: "2022-10-19 13:05:10",
+              urlreturn: "https://youwebsite.com/urlreturn?orderClient=123",
+              urlnotify: "https://youwebsite.com/urlnotify?orderClient=123",
               additional_parameters: {
                 parameters1:"keyValue",
-                parameters2:"keyValue",
+                parameters2:"keyValue2",
                 order_ext:"fff-777"
               }
             };
