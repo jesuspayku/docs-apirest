@@ -431,7 +431,7 @@ paths:
 
             request();
 
-  /api/banks?currency=clp:
+  /api/banks?currency=pen:
     get:
       tags:
         - Bancos
