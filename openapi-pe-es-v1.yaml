@@ -2895,7 +2895,7 @@ paths:
                 - properties:
                     amount:
                       pattern: " máximo 14 dígitos"
-                      description: Este campo solo sera usado en caso de planes de suscripciones de monto variable, es importante destacar que la moneda a utilizar en este tipo de plan es CLP.
+                      description: Este campo solo sera usado en caso de planes de suscripciones de monto variable, es importante destacar que la moneda a utilizar en este tipo de plan es PEN.
                       type: string
                   required:
                     - amount
@@ -5546,7 +5546,7 @@ components:
                   currency:
                     description: Moneda.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
             cards:
               type: array
               items:
@@ -5717,7 +5717,7 @@ components:
                   currency:
                     description: Moneda.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
             cards:
               type: array
               items:
@@ -6015,7 +6015,7 @@ components:
                           currency:
                             description: Moneda.
                             type: string
-                            example: "CLP"
+                            example: "PEN"
                     cards:
                       type: array
                       items:
@@ -6393,7 +6393,7 @@ components:
             currency:
               description: Moneda.
               type: string
-              example: "CLP"
+              example: "PEN"
         cards:
           type: object
           properties:
@@ -6578,7 +6578,7 @@ components:
                   currency:
                     description: Moneda.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
               cards:
                 type: object
                 properties:
@@ -6728,7 +6728,7 @@ components:
                   currency:
                     description: Moneda.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
               active_cards:
                 type: object
                 properties:
@@ -6864,7 +6864,7 @@ components:
             currency:
               type: string
               description: "Moneda"
-              example: "CLP"
+              example: "PEN"
             type:
               type: string
               description: |
@@ -6939,7 +6939,7 @@ components:
             currency:
               type: string
               description: "Moneda"
-              example: "CLP"
+              example: "PEN"
             type:
               type: string
               description: |
@@ -7334,7 +7334,7 @@ components:
             currency:
               type: string
               description: Moneda.
-              example: "CLP"
+              example: "PEN"
         nullify:
           description: "Objeto que contiene información de la respuesta de la anulación"
           type: object
@@ -7494,7 +7494,7 @@ components:
                   currency:
                     type: string
                     description: Moneda.
-                    example: "CLP"
+                    example: "PEN"
               nullify:
                 description: "Objeto que contiene información de la respuesta de la anulación"
                 type: object
@@ -7591,7 +7591,7 @@ components:
             currency:
               type: string
               description: Moneda.
-              example: "CLP"
+              example: "PEN"
         merchant:
           type: array
           description: Arreglo que contiene información de los beneficiarios.
@@ -8254,7 +8254,7 @@ components:
               currency:
                 type: string
                 description: Moneda.
-                example: "CLP"
+                example: "PEN"
               wallet:
                 type: string
                 description: Billetera digital de **payku**.
@@ -8362,7 +8362,7 @@ components:
         currency:
           type: string
           description: Descripción de la moneda.
-          example: "CLP"
+          example: "PEN"
         filter:
           type: object
           description: Datos específicos para filtrar los datos.
@@ -8378,7 +8378,7 @@ components:
             currency:
               type: string
               description: Descripción de la moneda.
-              example: "CLP"
+              example: "PEN"
             id:
               type: string
               description: Identificador de la cuenta wallet.
@@ -8428,7 +8428,7 @@ components:
               currency:
                 type: string
                 description: Descripción de la moneda.
-                example: "CLP"
+                example: "PEN"
               payout:
                 type: object
                 description: Datos cuenta destino.

@@ -2894,7 +2894,7 @@ paths:
                 - properties:
                     amount:
                       pattern: " maximum 14 digits"
-                      description: This field will only be used in the case of variable amount subscription plans, it is important to note that the currency to be used in this type of plan is CLP.
+                      description: This field will only be used in the case of variable amount subscription plans, it is important to note that the currency to be used in this type of plan is PEN.
                       type: string
                   required:
                     - amount
@@ -5297,7 +5297,7 @@ components:
               }
 
     BanksCurrencyResponse:
-      description: "Code of the bank to which the bank account belongs in CLP"
+      description: "Code of the bank to which the bank account belongs in PEN"
       type: object
       properties:
         status:
@@ -5366,7 +5366,7 @@ components:
               currency:
                 type: string
                 description: Currency
-                Example: CLP
+                Example: PEN
           example:
             - {
                 currency: "PEN",
@@ -5630,7 +5630,7 @@ components:
                   currency:
                     description: Currency.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
             cards:
               type: array
               items:
@@ -5801,7 +5801,7 @@ components:
                   currency:
                     description: currency.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
             cards:
               type: array
               items:
@@ -6000,7 +6000,7 @@ components:
                         currency:
                           description: Currency.
                           type: string
-                          example: "CLP"
+                          example: "PEN"
                   cards:
                     type: array
                     items:
@@ -6378,7 +6378,7 @@ components:
             currency:
               description: Currency.
               type: string
-              example: "CLP"
+              example: "PEN"
         cards:
           type: object
           properties:
@@ -6563,7 +6563,7 @@ components:
                   currency:
                     description: Currency.
                     type: string
-                    example: "CLP"
+                    example: "PEN"
               cards:
                 type: object
                 properties:
@@ -6791,7 +6791,7 @@ components:
             currency:
               type: string
               description: Currency.
-              example: "CLP"
+              example: "PEN"
         nullify:
           description: "Objeto que contiene información de la respuesta de la anulación"
           type: object
@@ -6947,7 +6947,7 @@ components:
                   currency:
                     type: string
                     description: Currency.
-                    example: "CLP"
+                    example: "PEN"
               nullify:
                 description: "Object containing abort response information"
                 type: object
@@ -7044,7 +7044,7 @@ components:
             currency:
               type: string
               description: Currency.
-              example: "CLP"
+              example: "PEN"
         merchant:
           type: array
           description: Arrangement containing beneficiary information.
@@ -7643,7 +7643,7 @@ components:
             currency:
               type: string
               description: "Currency"
-              example: "CLP"
+              example: "PEN"
             type:
               type: string
               description: |
@@ -7719,7 +7719,7 @@ components:
             currency:
               type: string
               description: "Currency"
-              example: "CLP"
+              example: "PEN"
             type:
               type: string
               description: |
@@ -7978,7 +7978,7 @@ components:
         currency:
           type: string
           description: Currency.
-          example: "CLP"
+          example: "PEN"
         filter:
           type: object
           description: Specific data to filter the data.
@@ -7994,7 +7994,7 @@ components:
             currency:
               type: string
               description: Currency.
-              example: "CLP"
+              example: "PEN"
             id:
               type: string
               description: Wallet account identifier.
@@ -8044,7 +8044,7 @@ components:
               currency:
                 type: string
                 description: Currency.
-                example: "CLP"
+                example: "PEN"
               payout:
                 type: object
                 description: Destination account data.
@@ -8278,7 +8278,7 @@ components:
               currency:
                 type: string
                 description: Currency.
-                example: "CLP"
+                example: "PEN"
               wallet:
                 type: string
                 description: Digital wallet **payku**.
