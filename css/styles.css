@@ -11406,6 +11406,12 @@ section#contact form#contactForm :-ms-input-placeholder {
   margin-top: 50px; /* Ajusta el tamaño según sea necesario */
 }
 
+@media (min-width: 1200px) {
+  .footer {
+      height: 70vh; /* Esto hace que ocupe toda la altura de la ventana */
+  }
+}
+
 .links {
   color: #000;
   font-style: arial !important;
