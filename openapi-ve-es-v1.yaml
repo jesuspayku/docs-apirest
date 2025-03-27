@@ -581,7 +581,7 @@ paths:
       operationId: payout
       tags:
         - Wallet
-      summary: Realizar pagos a terceros desde mi wallet para Venezuela
+      summary: Realizar pagos a terceros desde mi wallet
       description: Este método permite crear una orden de pago a un tercero utilizando los fondos de tu billetera virtual **payku**.
       responses:
         "200":

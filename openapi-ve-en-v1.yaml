@@ -641,7 +641,7 @@ paths:
     post:
       tags:
         - Wallet
-      summary: Make payments to third parties from my wallet for Venezuela
+      summary: Make payments to third parties from my wallet
       description:
         This method allows you to create a payment order to a third party using the funds in your wallet virtual **payku**.
       responses:
