@@ -848,7 +848,7 @@ paths:
                   description: |
                     Código del banco al que pertenece la cuenta bancaria.
                   type: string
-                  example: "0001"
+                  example: "002"
                 accountbank_type:
                   pattern: " máximo 1 caracterer"
                   description: |
@@ -857,7 +857,7 @@ paths:
                     - 2 Vista/Cuenta RUT
                     - 3 Ahorro
                   type: string
-                  example: "1"
+                  example: "2"
                 accountbank_num:
                   pattern: " máximo 200 caracteres"
                   description: |
