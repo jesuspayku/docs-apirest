@@ -5103,7 +5103,7 @@ components:
                   accountbank_sbif:
                     type: string
                     description: Código del banco al que pertenece la cuenta bancaria.
-                    example: "0001"
+                    example: "0102"
                   status:
                     type: string
                     description: Estatus del movimiento.
@@ -5160,7 +5160,7 @@ components:
             accountbank_sbif:
               type: string
               description: Código del banco al que pertenece la cuenta bancaria.
-              example: "0001"
+              example: "0102"
             status:
               type: string
               description: |
@@ -5228,7 +5228,7 @@ components:
             accountbank_sbif:
               type: string
               description: Código del banco al que pertenece la cuenta bancaria.
-              example: "0001"
+              example: "0102"
             status:
               type: string
               description: |
