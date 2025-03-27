@@ -11408,7 +11408,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 
 @media (min-width: 1200px) {
   .footer {
-      height: 60vh; /* Esto hace que ocupe toda la altura de la ventana */
+      height: 30vh; /* Esto hace que ocupe toda la altura de la ventana */
   }
 }
 
