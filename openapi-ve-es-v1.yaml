@@ -735,7 +735,7 @@ paths:
                   pattern: " máximo 14 dígitos"
                   description: Monto de la orden
                   type: integer
-                  example: 25000
+                  example: 2500
                 accountbank_name:
                   pattern: " máximo 180 caracteres"
                   description: Nombre del titular de la cuenta
@@ -4576,7 +4576,7 @@ components:
             rut:
               description: Registro Único Tributario.
               type: string
-              example: "111111111"
+              example: "V23654789"
             type:
               description: |
                 Tipo de cuenta.
@@ -5087,7 +5087,7 @@ components:
                   accountbank_rut:
                     type: string
                     description: Rut del titular de la cuenta destino.
-                    example: "111111111"
+                    example: "V23654789"
                   accountbank_name:
                     type: string
                     description: Nombre del titular de la cuenta destino.
@@ -5144,7 +5144,7 @@ components:
             accountbank_rut:
               type: string
               description: Rut del titular de la cuenta destino.
-              example: "111111111"
+              example: "V23654789"
             accountbank_name:
               type: string
               description: Nombre del titular de la cuenta destino.
@@ -5212,7 +5212,7 @@ components:
             accountbank_rut:
               type: string
               description: Rut del titular de la cuenta destino.
-              example: "111111111"
+              example: "V23654789"
             accountbank_name:
               type: string
               description: Nombre del titular de la cuenta destino.
