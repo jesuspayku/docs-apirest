@@ -963,7 +963,7 @@ paths:
             -H 'Host: BASE-URL' \
             -d '{
               "subject": "withdraw 133222",
-              "currency": "CLP",
+              "currency": "PEN",
               "order": "133222",
               "amount":  1000
             }'
@@ -974,7 +974,7 @@ paths:
                 'json' => [
                     "subject": "withdraw 9876",
                     'order' => "133222",
-                    'currency' => 'CLP',
+                    'currency' => 'PEN',
                     'amount' =>  1000
                   ],
                 'headers' => [
@@ -1001,7 +1001,7 @@ paths:
 
             let data = {
               "amount":  1000,
-              "currency": "CLP",
+              "currency": "PEN",
               "order": "133222",
               "subject": "subject"
             };
@@ -1022,7 +1022,7 @@ paths:
                   pattern: " máximo 6 caracteres"
                   description: Tipo de moneda  (Formato ISO)
                   type: string
-                  example: "CLP"
+                  example: "PEN"
                 order:
                   pattern: " máximo 80 caracteres"
                   description: Orden del comercio
@@ -1032,7 +1032,7 @@ paths:
                   pattern: " máximo 14 dígitos"
                   description: Monto de la orden
                   type: integer
-                  example: 25000
+                  example: 2500
               required:
                 - subject
                 - order
