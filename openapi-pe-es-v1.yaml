@@ -7009,7 +7009,7 @@ components:
               currency:
                 type: string
                 description: Moneda
-                Example: CLP
+                Example: PEN
           example:
             - {
                 code: "007",
@@ -7124,7 +7124,7 @@ components:
               currency:
                 type: string
                 description: Moneda
-                Example: CLP
+                Example: PEN
           example:
             - {
                 currency: "PEN",
